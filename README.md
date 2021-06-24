@@ -23,3 +23,7 @@ HttpFoundation component: replacing the default PHP global variables and functio
 
 using the HttpFoundation component is the start of better interoperability between all frameworks and applications using
 it (like Symfony, Drupal 8, phpBB 3, Laravel and ezPublish 5, and more).
+
+## 03 - The Front Controller
+Up until now, our application is simplistic as there is only one page. To spice things up a little bit, let’s go crazy
+and add another page that says goodbye
