@@ -9,8 +9,8 @@ $request = Request::createFromGlobals();
 $response = new Response();
 
 $map = [
-	'/hello' => __DIR__.'/../src/pages/hello.php',
-	'/bye'   => __DIR__.'/../src/pages/bye.php',
+	'/hello' => 'hello',
+	'/bye'   => 'bye',
 ];
 
 // The trick is the usage of the Request::getPathInfo() method which returns the path of the Request by removing the
@@ -18,7 +18,8 @@ $map = [
 $path = $request->getPathInfo();
 if (isset($map[$path])) {
 		ob_start();
-		include $map[$path];
+		extract($request->query->all(), EXTR_SKIP);
+		include sprintf(__DIR__.'/../src/pages/%s.php', $map[$path]);
 		// The last thing that is repeated in each page is the call to setContent(). We can convert all pages to “templates”
 		// by just echoing the content and calling the setContent() directly from the front controller script:
 		$response->setContent(ob_get_clean());

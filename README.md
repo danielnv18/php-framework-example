@@ -42,3 +42,7 @@ template, get the Request data via the $request variable and tweak the Response 
 ```bash
 symfony server:start --port=4321 --passthru=front.php
 ```
+
+## 05 - The Routing Component
+Before we start diving into the Routing component, let’s refactor our current framework just a little to make templates
+even more readable:
