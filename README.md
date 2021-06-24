@@ -45,4 +45,39 @@ symfony server:start --port=4321 --passthru=front.php
 
 ## 05 - The Routing Component
 Before we start diving into the Routing component, let’s refactor our current framework just a little to make templates
-even more readable:
+even more readable.
+
+Instead of an array for the URL map, the Routing component relies on a RouteCollection instance:
+
+```php
+use Symfony\Component\Routing\RouteCollection;
+
+$routes = new RouteCollection();
+```
+
+The match() method takes a request path and returns an array of attributes (notice that the matched route is
+automatically stored under the special _route attribute):
+```php
+$matcher->match('/bye');
+/* Result:
+[
+    '_route' => 'bye',
+];
+*/
+
+$matcher->match('/hello/Fabien');
+/* Result:
+[
+    'name' => 'Fabien',
+    '_route' => 'hello',
+];
+*/
+
+$matcher->match('/hello');
+/* Result:
+[
+    'name' => 'World',
+    '_route' => 'hello',
+];
+*/
+```
