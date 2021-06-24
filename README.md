@@ -31,3 +31,14 @@ and add another page that says goodbye
 We have indeed moved most of the shared code into a central place, but it does not feel like a good abstraction, does
 it? We still have the `send()` method for all pages, our pages do not look like templates and we are still not able to
 test this code properly.
+
+## 04 - Refactor
+Now, configure your web server root directory to point to web/ and all other files won’t be accessible from the client
+anymore.
+
+Adding a new page is a two-step process: add an entry in the map and create a PHP template in src/pages/. From a
+template, get the Request data via the $request variable and tweak the Response headers via the $response variable.
+
+```bash
+symfony server:start --port=4321 --passthru=front.php
+```
