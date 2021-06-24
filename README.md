@@ -27,3 +27,7 @@ it (like Symfony, Drupal 8, phpBB 3, Laravel and ezPublish 5, and more).
 ## 03 - The Front Controller
 Up until now, our application is simplistic as there is only one page. To spice things up a little bit, let’s go crazy
 and add another page that says goodbye
+
+We have indeed moved most of the shared code into a central place, but it does not feel like a good abstraction, does
+it? We still have the `send()` method for all pages, our pages do not look like templates and we are still not able to
+test this code properly.
