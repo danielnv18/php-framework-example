@@ -1,0 +1,15 @@
+{
+    "name": "danielnv18/php-framework-example",
+    "description": "php framework example",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Noyola",
+            "email": "daniel.noyola.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^5.3"
+    }
+}
